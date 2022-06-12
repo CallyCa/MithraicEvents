@@ -11,5 +11,5 @@ dist: focal
 branches:
   only:
   - dev
-  - main
+  - master
   - /v\d+\.\d+[a-z]/
