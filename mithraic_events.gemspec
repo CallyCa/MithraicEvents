@@ -16,10 +16,6 @@ Gem::Specification.new do |spec|
 
   spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/CallyCa/MithraicEvents"
-  spec.metadata["changelog_uri"] = "https://github.com/CallyCa/MithraicEvents/CHANGELOG.md"
-
   spec.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").reject do |f|
       (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
