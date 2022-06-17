@@ -7,7 +7,7 @@ Mithraic Events aims to provide a convenient and easy process for working with H
 Add  Mithraic-Events to your `Gemfile`:
 
 ```bash
-gem 'mithraic_events', '~> 0.1.0'
+gem 'mithraic_events', '~> 0.1.1'
 ```
 
 or
