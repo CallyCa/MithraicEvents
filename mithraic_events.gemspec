@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["thiago.callyxz@gmail.com"]
 
   spec.summary = "Modules of the HTTParty and more stuff"
-  spec.description = "Mithraic Event is a tool to help in the API testing with HTTParty"
+  spec.description = "Mithraic Events is a tool to help in the API testing with HTTParty"
   spec.homepage = "https://github.com/CallyCa/MithraicEvents"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
@@ -41,4 +41,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rubocop"
   spec.add_development_dependency "rubocop-checkstyle_formatter"
+  spec.metadata["rubygems_mfa_required"] = "true"
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "mithraic_events/version"
-require "httparty"
+require_relative 'mithraic_events/version'
+require 'httparty'
 
 module MithraicEvents
   include HTTParty
@@ -11,36 +11,36 @@ module MithraicEvents
   def get(url, query: nil, headers: nil, body: nil)
     headers = build_request(headers)
     response = HTTParty.get(url, query: query, headers: headers, body: body.to_json)
-    print_info("GET", url, query, headers, body, response) if ISPDF == "true"
+    print_info('GET', url, query, headers, body, response) if ISPDF == 'true'
     response
   end
 
   def post(url, query: nil, headers: nil, body: nil)
-    body = body.to_json unless body.eql?("grant_type=client_credentials")
+    body = body.to_json unless body.eql?('grant_type=client_credentials')
     headers = build_request(headers)
     response = HTTParty.post(url, query: query, headers: headers, body: body, timeout: 180)
-    print_info("POST", url, query, headers, body, response) if ISPDF == "true"
+    print_info('POST', url, query, headers, body, response) if ISPDF == 'true'
     response
   end
 
   def put(url, query: nil, headers: nil, body: nil)
     headers = build_request(headers)
     response = HTTParty.put(url, query: query, headers: headers, body: body.to_json)
-    print_info("PUT", url, query, headers, body, response) if ISPDF == "true"
+    print_info('PUT', url, query, headers, body, response) if ISPDF == 'true'
     response
   end
 
   def patch(url, query: nil, headers: nil, body: nil)
     headers = build_request(headers)
     response = HTTParty.patch(url, query: query, headers: headers, body: body.to_json)
-    print_info("PATCH", url, query, headers, body, response) if ISPDF == "true"
+    print_info('PATCH', url, query, headers, body, response) if ISPDF == 'true'
     response
   end
 
   def delete(url, query: nil, headers: nil, body: nil)
     headers = build_request(headers)
     response = HTTParty.delete(url, query: query, headers: headers, body: body.to_json)
-    print_info("DELETE", url, query, headers, body, response) if ISPDF == "true"
+    print_info('DELETE', url, query, headers, body, response) if ISPDF == 'true'
     response
   end
 
@@ -49,20 +49,20 @@ module MithraicEvents
   end
 
   def build_request(headers)
-    headers = { 'Content-Type': "application/json" } if headers.nil?
-    headers.merge!('Content-Type': "application/json") unless headers.key?(:'Content-Type')
-    headers.merge!('Authorization': @@token) unless defined?(@@token).nil?
+    headers = { 'Content-Type': 'application/json' } if headers.nil?
+    headers.merge!('Content-Type': 'application/json') unless headers.key?(:'Content-Type')
+    headers.merge!(Authorization: @@token) unless defined?(@@token).nil?
     headers
   end
 
   def print_info(verb, url, query, headers, body, response)
-    write_evidence("Request Method:", verb)
-    write_evidence("Request URL:", url)
-    write_evidence("Response Status:", response.code)
-    write_evidence("Query params:", query) unless query.nil?
-    write_evidence("Headers:", headers) unless headers.nil?
-    write_evidence("Request Body:", body) unless body.nil?
-    write_evidence("Response Body:", response.parsed_response) unless response.body.nil? || response.body.empty?
+    write_evidence('Request Method:', verb)
+    write_evidence('Request URL:', url)
+    write_evidence('Response Status:', response.code)
+    write_evidence('Query params:', query) unless query.nil?
+    write_evidence('Headers:', headers) unless headers.nil?
+    write_evidence('Request Body:', body) unless body.nil?
+    write_evidence('Response Body:', response.parsed_response) unless response.body.nil? || response.body.empty?
   end
 
   def write_evidence(text, value)
@@ -81,7 +81,7 @@ module MithraicEvents
   def prepare_mock_invalid(payload, field, max_length, character)
     json_navigate = field.split(/-/)
     object = JSON.parse(payload.to_json)
-    value = "".rjust(max_length.to_i, character)
+    value = ''.rjust(max_length.to_i, character)
     payload = set_value_iter(object, json_navigate, value)
     payload.to_h
   end

@@ -1,37 +1,63 @@
-# MithraicEvents
+# Mithraic-Events
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mithraic_events`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Mithraic Events aims to provide a convenient and easy process for working with HTTParty and other facilities to help you in API testings.
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
+Add  Mithraic-Events to your `Gemfile`:
 
-    $ bundle add mithraic_events
+```bash
+gem 'mithraic_events', '~> 0.1.0'
+```
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+or
 
-    $ gem install mithraic_events
+```ruby
+gem 'mithraic_events'
+```
+
+Install:
+
+```bash
+bundle install
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+GET
 
-## Development
+```bash
+get("#{url_token}members/me/?key={{api_key}}&token={{token}}"
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+POST
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```bash
+post("{url_token}boards/?name=comaed&key={{api_key}}&token={{token}}&defaultLists=false")
+```
+
+PUT
+
+```bash
+put("{url_token}/cards/:id?idList={{doneListId}}&key={{trelloKey}}&token={{trelloToken}}")
+```
+
+PATCH
+
+```bash
+patch("{url_token}/checklists/:id/:field?value=bottom")
+```
+
+DELETE
+
+```bash
+delete("{url_token}/boards/:id?key={{trelloKey}}&token={{trelloToken}}")
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mithraic_events. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/mithraic_events/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at <https://github.com/callyca/mithraic_events>. This project is intended to be a safe, welcoming space for collaboration.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the MithraicEvents project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/mithraic_events/blob/master/CODE_OF_CONDUCT.md).
