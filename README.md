@@ -24,6 +24,12 @@ bundle install
 
 ## Usage
 
+Required the module MithraicEvents to realize the API testings
+
+```bash
+include MithraicEvents
+```
+
 GET
 
 ```bash
